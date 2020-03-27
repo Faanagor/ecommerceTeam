@@ -73,12 +73,40 @@ WSGI_APPLICATION = 'ecommerceTeam.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'db_almacen',
+        'USER': 'usr_almacen',
+        'PASSWORD': 'mipassword',
+        'HOST': '127.0.0.1',
+        'PORT': '1433',
+
+        'OPTIONS': {
+            'driver': 'ODBC Driver 13 for SQL Server',
+        },
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'sql_server.pyodbc',
+#         'NAME': '<DB NAME>',
+#         'HOST': '<HOST IP>',
+#         'USER': '<SQL SERVER USERNAME',
+#         'PASSWORD': '<SQL SERVER PASSWORD>',
+
+#         'OPTIONS': {
+#             'driver': 'ODBC Driver 13 for SQL Server',
+#         }
+#     }
+# }
 
 
 # Password validation
