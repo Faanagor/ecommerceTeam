@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'pfu+1j(!ai0qtx$z-!gt!hsa^&+b)gszgsd9tp*jqta!^=p-s2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ecommerce'
 ]
 
 MIDDLEWARE = [
@@ -73,41 +74,19 @@ WSGI_APPLICATION = 'ecommerceTeam.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'db_almacen',
-        'USER': 'usr_almacen',
-        'PASSWORD': 'mipassword',
-        'HOST': '127.0.0.1',
-        'PORT': '1433',
+        'NAME': 'DB_ecommerce',
+        'USER': 'TeamInternational',
+        'PASSWORD': '123456',
+        'HOST': 'LAPTOP-08ODUE6M',
 
         'OPTIONS': {
             'driver': 'ODBC Driver 13 for SQL Server',
         },
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'sql_server.pyodbc',
-#         'NAME': '<DB NAME>',
-#         'HOST': '<HOST IP>',
-#         'USER': '<SQL SERVER USERNAME',
-#         'PASSWORD': '<SQL SERVER PASSWORD>',
-
-#         'OPTIONS': {
-#             'driver': 'ODBC Driver 13 for SQL Server',
-#         }
-#     }
-# }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
