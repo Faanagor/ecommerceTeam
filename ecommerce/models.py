@@ -77,4 +77,6 @@ class Invoice(models.Model):
 
     client = models.ForeignKey(Client, on_delete=models.CASCADE) # Relation 1 to many  client-invoice
     products = models.ManyToManyField(Product) # Relation many to many  product-invoice
-
+    
+    def __str__(self):
+        return self.title

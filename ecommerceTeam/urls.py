@@ -15,10 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework import routers
 from ecommerce import views
 
+router = routers.DefaultRouter()
+router.register(r'posts', views.PostView, 'ecommerce')
+
 urlpatterns = [
-    # urls(r'^$', views.index, name='site_index'),
-    path('ecommerce/', include('ecommerce.urls')),
-    path('admin/', admin.site.urls),
-]
+    path('admin/', admin.site.urls),           
+    path('api/', include(router.urls))
+] 
+
+# urls(r'^$', views.index, name='site_index'),
+# path('', views.IndexView.as_view(), name='index'),
+# path('ecommerce/', include('ecommerce.urls')),
+# path('<int:pk>/', views.PostDetailView.as_view(), name='detail'),
+# path('edit/<int:pk>/', views.edit, name='edit'),
+# path('post/', views.postview, name='post'),
+# path('delete/<int:pk>/', views.delete, name='delete'),
