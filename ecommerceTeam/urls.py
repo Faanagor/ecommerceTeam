@@ -2,34 +2,28 @@
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
 from ecommerce import views
 
+# router = routers.DefaultRouter()
+# router.register(r'supplier', views.SupplierView, 'ecommerce')
+# router.register(r'product', views.ProductView, 'ecommerce')
+# router.register(r'client', views.ClientView, 'ecommerce')
+# router.register(r'invoice', views.InvoiceView, 'ecommerce')
+
 router = routers.DefaultRouter()
-router.register(r'posts', views.PostView, 'ecommerce')
+
+router.register(r'supplier', views.SupplierView, 'supplier')
+router.register(r'product', views.ProductView, 'product')
+router.register(r'client', views.ClientView, 'client')
+router.register(r'invoice', views.InvoiceView, 'invoice')
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),           
-    path('api/', include(router.urls))
-] 
-
-# urls(r'^$', views.index, name='site_index'),
-# path('', views.IndexView.as_view(), name='index'),
-# path('ecommerce/', include('ecommerce.urls')),
-# path('<int:pk>/', views.PostDetailView.as_view(), name='detail'),
-# path('edit/<int:pk>/', views.edit, name='edit'),
-# path('post/', views.postview, name='post'),
-# path('delete/<int:pk>/', views.delete, name='delete'),
+    path('admin/', admin.site.urls),       
+    path('api/', include(router.urls)),
+]
