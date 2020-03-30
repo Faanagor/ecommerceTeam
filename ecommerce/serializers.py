@@ -6,7 +6,7 @@ class SupplierSerializer(serializers.ModelSerializer):
         model = Supplier
         field = ('idSupplier', 'nitSupplier', 'nameSupplier', 'categorySupplier', 'telephoneSupplier', 'emailSupplier', 
         'citySupplier', 'addressSupplier', 'descriptionSupplier')
-
+        # field = '__all__'
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product

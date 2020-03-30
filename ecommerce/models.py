@@ -79,4 +79,4 @@ class Invoice(models.Model):
     products = models.ManyToManyField(Product) # Relation many to many  product-invoice
     
     def __str__(self):
-        return self.title
+        return self.idInvoice 
